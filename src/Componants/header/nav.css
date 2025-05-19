@@ -1,0 +1,10 @@
+a{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+a.active{
+    font-size: 19px;
+    color: blue;
+    text-decoration: underline;
+}
