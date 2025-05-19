@@ -1,10 +1,11 @@
 a{
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 12px;
 }
 
 a.active{
-    font-size: 19px;
+    font-size: 14px;
     color: blue;
     text-decoration: underline;
+    transition: 0.5s;
 }

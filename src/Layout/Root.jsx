@@ -4,7 +4,7 @@ import Nav from '../Componants/header/Nav';
 
 const Root = () => {
     return (
-        <div>
+        <div className='max-w-full lg:max-w-10/12 mx-auto'>
             <Nav></Nav>
             <Outlet></Outlet>
         </div>
