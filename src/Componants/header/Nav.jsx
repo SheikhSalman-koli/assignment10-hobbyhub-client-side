@@ -65,7 +65,7 @@ const Nav = () => {
                             <NavLink to='/mygroup'>My Groups</NavLink>
                             {
                                 user ? <>
-                                    <button className='text-[12px] font-bold'>logout</button>
+                                   <button onClick={handleLogout} className='text-[12px] font-bold'>logout</button>
                                 </>
                                     :
                                     <>
