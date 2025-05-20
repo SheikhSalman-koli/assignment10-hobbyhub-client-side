@@ -4,6 +4,7 @@ import './nav.css'
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import logo from '../../assets/hibby-logo.jpg'
 
 const Nav = () => {
 
@@ -24,7 +25,7 @@ const Nav = () => {
         <div>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
-                    <h1>Name/logo</h1>
+                    <img className='w-14 h-14 rounded-full ' src={logo} alt="" />
                 </div>
 
                 <div className="navbar-end">
