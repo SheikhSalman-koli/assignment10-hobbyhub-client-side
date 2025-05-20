@@ -1,31 +1,49 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import './nav.css'
+import { AuthContext } from '../Context/AuthContext';
+import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const Nav = () => {
 
-    const links = <>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink>All Groups</NavLink>
-        <NavLink>Create Group</NavLink>
-        <NavLink>My Groups</NavLink>
-        <NavLink to='/signin'>Login</NavLink>
-        <NavLink to='/signup'>Register</NavLink>
-    </>
+    const { user, logOut } = use(AuthContext)
+
+    // console.log(user, logOut);
+
+    const handleLogout = () => {
+        logOut()
+        .then(() => {
+           Swal.fire('user logged out successfully!')
+        }).catch((error) => {
+            toast.error(error.message)
+        });
+    }
 
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
-
-                    <h1>Name</h1>
+                    <h1>Name/logo</h1>
                 </div>
 
                 <div className="navbar-end">
                     <div className="hidden lg:flex">
+                        <NavLink to='/'>Home</NavLink>
+                        <NavLink to='/allgroup'>All Groups</NavLink>
+                        <NavLink to='/create'>Create Group</NavLink>
+                        <NavLink to='/mygroup'>My Groups</NavLink>
                         {
-                            links
+                            user ? <>
+                                <button onClick={handleLogout} className='text-[12px] font-bold'>logout</button>
+                            </>
+                                :
+                                <>
+                                    <NavLink to='/signin'>Login</NavLink>
+                                    <NavLink to='/signup'>Register</NavLink>
+                                </>
                         }
+
                     </div>
                     <div className="dropdown lg:hidden">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,9 +51,20 @@ const Nav = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 right-0 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 right-0 mt-3 w-52 p-0 shadow">
+                            <NavLink to='/'>Home</NavLink>
+                            <NavLink to='/allgroup'>All Groups</NavLink>
+                            <NavLink to='/create'>Create Group</NavLink>
+                            <NavLink to='/mygroup'>My Groups</NavLink>
                             {
-                                links
+                                user ? <>
+                                    <button className='text-[12px] font-bold'>logout</button>
+                                </>
+                                    :
+                                    <>
+                                        <NavLink to='/signin'>Login</NavLink>
+                                        <NavLink to='/signup'>Register</NavLink>
+                                    </>
                             }
                         </ul>
                     </div>
