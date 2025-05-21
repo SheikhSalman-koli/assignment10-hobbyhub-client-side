@@ -5,15 +5,14 @@ import Swal from 'sweetalert2';
 const GroupDetails = () => {
 
     const group = useLoaderData()
-    console.log(group);
-
+    // console.log(group);
     const handleJoin = () => {
         Swal.fire({
             position: "top-end",
             icon: "success",
             title: "you have joined successfully!",
             showConfirmButton: false,
-            timer: 2000
+            timer: 1500
         });
     }
 
@@ -26,11 +25,11 @@ const GroupDetails = () => {
                 <p className="text-gray-600 mt-1 italic">{group.category}</p>
 
                 <div className="mt-4">
-                    <p className="mb-2"><strong>Description:</strong> {group.dscription}</p>
-                    <p className="mb-2"><strong>Meeting Location:</strong> {group.Location}</p>
-                    <p className="mb-2"><strong>Max Members:</strong> {group.members}</p>
-                    <p className="mb-2"><strong>Start Date:</strong> {new Date(group.date).toLocaleDateString()}</p>
-                    <p className="mb-2"><strong>Created By:</strong> {group.username} ({group.email})</p>
+                    <p className="mb-2"><span className='font-bold'>Description:</span> {group.dscription}</p>
+                    <p className="mb-2"><span className='font-bold'>Meeting Location:</span> {group.Location}</p>
+                    <p className="mb-2"><span className='font-bold'>Max Members:</span> {group.members}</p>
+                    <p className="mb-2"><span className='font-bold'>Start Date:</span> {new Date(group.date).toLocaleDateString()}</p>
+                    <p className="mb-2"><span className='font-bold'>Created By:</span> {group.username} ({group.email})</p>
                 </div>
 
                 <button

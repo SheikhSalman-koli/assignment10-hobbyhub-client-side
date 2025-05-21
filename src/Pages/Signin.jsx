@@ -15,6 +15,26 @@ const Signin = () => {
        const email = e.target.email.value
        const password = e.target.password.value
 
+       const upperCase = /(?=.*[A-Z])/
+               const lower = /(?=.*[a-z])/
+               const minimum = /.{6,}/
+       
+               if (!upperCase.test(password) === true) {
+                   // setShowError()
+                   toast.error("Must have an Uppercase letter in the password!")
+                   return
+               }
+               if (!lower.test(password) === true) {
+                   // setShowError()
+                   toast.error("Must have a Lowercase letter in the password!")
+                   return
+               }
+               if (!minimum.test(password) === true) {
+                   // setShowError()
+                   toast.error("Length must be at least 6 character!")
+                   return
+               }
+
        login(email, password)
         .then((result) => {
             const usser = result.user
@@ -35,8 +55,11 @@ const Signin = () => {
         .then(result => {
             const usser = result.user
             setUser(usser)
-            Swal.fire('login successfully')
             navigate('/')
+            Swal.fire({
+                title: 'logged in successfully',
+                icon: 'success'
+            })
         })
          .catch((error)=>{
            toast.error(error.message)
