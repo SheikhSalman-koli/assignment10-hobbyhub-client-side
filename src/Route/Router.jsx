@@ -32,7 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
-                Component: GroupDetails
+                element: <PrivetRout>
+                    <GroupDetails></GroupDetails>
+                </PrivetRout>
+                // Component: GroupDetails
             },
               {
                 path: 'mygroup',
