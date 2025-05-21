@@ -6,6 +6,8 @@ import SignUp from "../Pages/SignUp";
 import AllGroups from "../Pages/AllGroups";
 import CreateGroup from "../Pages/CreateGroup";
 import MyGroup from "../Pages/MyGroup";
+import PrivetRout from "./PrivetRout";
+import GroupDetails from "../Pages/GroupDetails";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +24,15 @@ export const router = createBrowserRouter([
             },
               {
                 path: 'create',
-                Component: CreateGroup
+                element: <PrivetRout>
+                    <CreateGroup></CreateGroup>
+                </PrivetRout>
+                // Component: CreateGroup
+            },
+            {
+                path: 'details/:id',
+                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                Component: GroupDetails
             },
               {
                 path: 'mygroup',
