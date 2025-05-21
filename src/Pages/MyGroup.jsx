@@ -3,17 +3,16 @@ import { AuthContext } from '../Componants/Context/AuthContext';
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyGroup = () => {
 
     const { user } = use(AuthContext)
 
-
     const [groups, setGroups] = useState([])
     const [remaining, setRemaining] = useState([])
 
     // console.log(remaining);
-
     useEffect(() => {
         fetch('http://localhost:3000/groups')
             .then(res => res.json())
@@ -36,34 +35,33 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
-                 fetch(`http://localhost:3000/groups/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deletedCount){
-                     Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-                const afterdelet = remaining.filter(item => item._id !== id)
-                setRemaining(afterdelet)
-                }
-               
-                // console.log(data);
-            })
+                fetch(`http://localhost:3000/groups/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const afterdelet = remaining.filter(item => item._id !== id)
+                            setRemaining(afterdelet)
+                        }
+                    })
             }
         });
-       
-
-        // console.log('object okkkkkkkkkkokok', id);
     }
+
+    // const handleShowModal = (id) => {
+    //     console.log('object  and id is:', id);
+    //     document.getElementById('my_modal_1')
+    // }
 
     return (
         <div>
-            {user ?
+            {remaining.length > 0 ?
                 (<div>
                     <div className="overflow-x-auto">
                         <table className="table mt-8">
@@ -109,20 +107,23 @@ const MyGroup = () => {
                                             {group.dscription}
                                         </td>
                                         <th>
-                                            <button className='btn btn-ghost hover:btn-warning'><MdEdit size={20} /></button>
+                                            <Link to={`/update/${group._id}`} className='btn btn-ghost hover:btn-warning'><MdEdit size={20} /></Link>
                                             <button onClick={() => handleDelet(group._id)} className='btn btn-ghost hover:btn-warning'><MdDelete size={20} /></button>
                                         </th>
                                     </tr>)
                                 }
-
                             </tbody>
                         </table>
                     </div>
-
-                </div>)
+                    
+                </div >)
                 :
-                (<p>you did not create any group yet</p>)}
-        </div>
+                (<div>
+                    <h1>Opps!</h1>
+                    <h1>you did not create any Group yet?</h1>
+                    <Link to='/create'>Create Group</Link>
+                </div>)}
+        </div >
     );
 };
 

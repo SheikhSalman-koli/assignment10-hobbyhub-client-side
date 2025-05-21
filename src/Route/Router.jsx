@@ -8,6 +8,7 @@ import CreateGroup from "../Pages/CreateGroup";
 import MyGroup from "../Pages/MyGroup";
 import PrivetRout from "./PrivetRout";
 import GroupDetails from "../Pages/GroupDetails";
+import Update from "../Pages/Update";
 
 export const router = createBrowserRouter([
     {
@@ -39,7 +40,15 @@ export const router = createBrowserRouter([
             },
               {
                 path: 'mygroup',
-                Component: MyGroup
+                element: <PrivetRout>
+                    <MyGroup></MyGroup>
+                </PrivetRout>
+                // Component: MyGroup
+            },
+            {
+                path: 'update/:id',
+                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                Component: Update
             },
             {
                 path: '/signin',
