@@ -14,7 +14,7 @@ const MyGroup = () => {
 
     // console.log(remaining);
     useEffect(() => {
-        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
+        fetch('http://localhost:3000/groups')
             .then(res => res.json())
             .then(data => setGroups(data))
     }, [])
@@ -35,7 +35,7 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${id}`, {
+                fetch(`http://localhost:3000/groups/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

@@ -9,6 +9,7 @@ import MyGroup from "../Pages/MyGroup";
 import PrivetRout from "./PrivetRout";
 import GroupDetails from "../Pages/GroupDetails";
 import Update from "../Pages/Update";
+import NotFound from "../Pages/NotFound";
 
 export const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                loader: ({params})=> fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
+                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
                 element: <PrivetRout>
                     <GroupDetails></GroupDetails>
                 </PrivetRout>
@@ -47,7 +48,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'update/:id',
-                loader: ({params})=> fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
+                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
                 Component: Update
             },
             {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 Component: SignUp
+            },
+            {
+                path: '*',
+                Component: NotFound
             }
         ]
     }
