@@ -4,6 +4,7 @@ import Extra1 from '../Componants/Extra1';
 import Extra2 from '../Componants/Extra2';
 import FeaturedGroups from '../Componants/FeaturedGroups';
 import { Tooltip } from 'react-tooltip';
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
 
@@ -14,6 +15,14 @@ const Home = () => {
         ◕‿‿◕
       </a>
       <Tooltip id="my-tooltip" />
+
+      <Fade cascade>
+  <p>I enter first...</p>
+  <p>...then comes my turn...</p>
+  <p>...and finally you see me!</p>
+</Fade>
+
+
       <Banner></Banner>
       <FeaturedGroups></FeaturedGroups>
       <Extra1></Extra1>
