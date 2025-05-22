@@ -1,4 +1,9 @@
 @import "tailwindcss";
-@plugin "daisyui"{
-  themes: light --default;
+@plugin "daisyui" {
+  themes: all;
+}
+
+#root {
+  text-align: center;
+  padding: 20px 10px;
 }

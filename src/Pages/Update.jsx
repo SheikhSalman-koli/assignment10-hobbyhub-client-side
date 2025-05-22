@@ -18,7 +18,7 @@ const Update = () => {
         const updatedGroup = Object.fromEntries(formData.entries())
         // console.log(updatedGroup);
 
-        fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${_id}`, {
+        fetch(`http://localhost:3000/groups/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

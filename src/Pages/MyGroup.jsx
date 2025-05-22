@@ -16,7 +16,7 @@ const MyGroup = () => {
     // console.log(remaining);
     useEffect(() => {
         setLoader(true)
-        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
+        fetch('http://localhost:3000/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data)
@@ -40,7 +40,7 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${id}`, {
+                fetch(`http://localhost:3000/groups/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -75,7 +75,7 @@ const MyGroup = () => {
                                     </th>
                                     <th>Profile</th>
                                     <th>Name</th>
-                                    <th className='hidden lg:block'>Location</th>
+                                    <th>Location</th>
                                     <th className='hidden lg:block'>Description</th>
                                     <th>Actions</th>
                                 </tr>
@@ -102,13 +102,13 @@ const MyGroup = () => {
                                             </div>
                                         </td>
                                         <td className='font-bold'>{group.name}</td>
-                                        <td className='hidden lg:block'>{group.Location}</td>
+                                        <td>{group.Location}</td>
                                         <td className='hidden lg:block'>
                                             {group.dscription}
                                         </td>
                                         <th>
                                             <Link to={`/update/${group._id}`} className='btn btn-sm hover:btn-warning'><MdEdit size={20} /></Link>
-                                            <button onClick={() => handleDelet(group._id)} className='btn btn-sm hover:btn-warning'><MdDelete size={20} /></button>
+                                            <button onClick={() => handleDelet(group._id)} className='btn btn-sm hover:btn-warning mt-1'><MdDelete size={20} /></button>
                                         </th>
                                     </tr>)
                                 }

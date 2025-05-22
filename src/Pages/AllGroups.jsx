@@ -9,7 +9,7 @@ const AllGroups = () => {
 
     useEffect(() => {
         setLoader(true)
-        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
+        fetch('http://localhost:3000/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data)
@@ -37,7 +37,7 @@ const AllGroups = () => {
                                         </th>
                                         <th>Profile</th>
                                         <th>Name</th>
-                                        <th className='hidden lg:block'>Location</th>
+                                        <th>Location</th>
                                         <th className='hidden lg:block'>Description</th>
                                         <th>view details</th>
                                     </tr>
@@ -65,7 +65,7 @@ const AllGroups = () => {
                                                 </div>
                                             </td>
                                             <td className='font-bold'>{group.name}</td>
-                                            <td  className='hidden lg:block'>{group.Location}</td>
+                                            <td>{group.Location}</td>
                                             <td className='hidden lg:block'>
                                                 {group.dscription}
                                             </td>
