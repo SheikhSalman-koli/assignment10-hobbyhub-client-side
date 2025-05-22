@@ -9,7 +9,7 @@ const Update = () => {
 
     const group = useLoaderData()
     const { _id, name, category, dscription, Location, members, date, photo } = group
-    console.log(group);
+    // console.log(group);
 
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -18,7 +18,7 @@ const Update = () => {
         const updatedGroup = Object.fromEntries(formData.entries())
         // console.log(updatedGroup);
 
-        fetch(`http://localhost:3000/groups/${_id}`, {
+        fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

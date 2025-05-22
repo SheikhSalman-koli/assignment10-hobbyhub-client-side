@@ -15,7 +15,7 @@ const CreateGroup = () => {
         console.log(newGroup);
 
         // send Group data to the db
-        fetch('http://localhost:3000/groups', {
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,6 +61,7 @@ const CreateGroup = () => {
                                 <option value="Running">Running</option>
                                 <option value="Swimming">Swimming</option>
                                 <option value="Cooking">Cooking</option>
+                                <option value="Fitness">Fitness</option>
                                 <option value="Reading">Reading</option>
                                 <option value="Writing">Writing</option>
                             </select>

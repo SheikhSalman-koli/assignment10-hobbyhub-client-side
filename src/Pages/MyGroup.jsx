@@ -11,12 +11,17 @@ const MyGroup = () => {
 
     const [groups, setGroups] = useState([])
     const [remaining, setRemaining] = useState([])
+    const [loader, setLoader]= useState(false)
 
     // console.log(remaining);
     useEffect(() => {
-        fetch('http://localhost:3000/groups')
+        setLoader(true)
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
-            .then(data => setGroups(data))
+            .then(data => {
+                setGroups(data)
+                setLoader(false)
+            })
     }, [])
 
     useEffect(() => {
@@ -35,7 +40,7 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${id}`, {
+                fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -54,11 +59,6 @@ const MyGroup = () => {
         });
     }
 
-    // const handleShowModal = (id) => {
-    //     console.log('object  and id is:', id);
-    //     document.getElementById('my_modal_1')
-    // }
-
     return (
         <div>
             {remaining.length > 0 ?
@@ -75,7 +75,7 @@ const MyGroup = () => {
                                     </th>
                                     <th>Profile</th>
                                     <th>Name</th>
-                                    <th>Location</th>
+                                    <th className='hidden lg:block'>Location</th>
                                     <th className='hidden lg:block'>Description</th>
                                     <th>Actions</th>
                                 </tr>
@@ -101,14 +101,14 @@ const MyGroup = () => {
 
                                             </div>
                                         </td>
-                                        <td>{group.name}</td>
-                                        <td>{group.Location}</td>
+                                        <td className='font-bold'>{group.name}</td>
+                                        <td className='hidden lg:block'>{group.Location}</td>
                                         <td className='hidden lg:block'>
                                             {group.dscription}
                                         </td>
                                         <th>
-                                            <Link to={`/update/${group._id}`} className='btn btn-ghost hover:btn-warning'><MdEdit size={20} /></Link>
-                                            <button onClick={() => handleDelet(group._id)} className='btn btn-ghost hover:btn-warning'><MdDelete size={20} /></button>
+                                            <Link to={`/update/${group._id}`} className='btn btn-sm hover:btn-warning'><MdEdit size={20} /></Link>
+                                            <button onClick={() => handleDelet(group._id)} className='btn btn-sm hover:btn-warning'><MdDelete size={20} /></button>
                                         </th>
                                     </tr>)
                                 }
@@ -118,10 +118,16 @@ const MyGroup = () => {
                     
                 </div >)
                 :
-                (<div className='my-5 lg:my-10  p-6 lg:p-15 space-y-4'>
+                (<div>
+                    {
+                        loader ? <span className="loading loading-spinner loading-xl my-15 text-red"></span>
+                         : 
+                        <div className='my-5 lg:my-10  p-6 lg:p-15 space-y-4'>
                     <h1 className='text-6xl text-red-500 font-bold'>Opps!</h1>
                     <h1 className='font-bold'>you did not create any Group yet</h1>
                     <Link to='/create' className='btn hover:btn-primary'>Create Group</Link>
+                </div>
+                    }
                 </div>)}
         </div >
     );
