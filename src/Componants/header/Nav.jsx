@@ -11,7 +11,6 @@ const Nav = () => {
     const { user, logOut } = use(AuthContext)
 
     // console.log(user, logOut);
-
     const handleLogout = () => {
         logOut()
             .then(() => {
