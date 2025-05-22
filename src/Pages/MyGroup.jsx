@@ -14,7 +14,7 @@ const MyGroup = () => {
 
     // console.log(remaining);
     useEffect(() => {
-        fetch('http://localhost:3000/groups')
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
             .then(data => setGroups(data))
     }, [])
@@ -35,7 +35,7 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${id}`, {
+                fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -118,10 +118,10 @@ const MyGroup = () => {
                     
                 </div >)
                 :
-                (<div>
-                    <h1>Opps!</h1>
-                    <h1>you did not create any Group yet?</h1>
-                    <Link to='/create'>Create Group</Link>
+                (<div className='my-5 lg:my-10  p-6 lg:p-15 space-y-4'>
+                    <h1 className='text-6xl text-red-500 font-bold'>Opps!</h1>
+                    <h1 className='font-bold'>you did not create any Group yet</h1>
+                    <Link to='/create' className='btn hover:btn-primary'>Create Group</Link>
                 </div>)}
         </div >
     );

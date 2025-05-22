@@ -12,7 +12,7 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title"> About HobbyHub</h6>
                     <div className='flex gap-2 items-center'>
-                        <img className='w-14 h-14 rounded-full ' src={logo} alt="" />
+                        <img className='w-14 h-14 rounded-full border-2' src={logo} alt="" />
                         <a className="link link-hover">HobbyHub</a>
                     </div>
                     <p className="">HobbyHub is your space <br /> to explore passions, <br />meet creative minds, <br /> and grow your hobbies <br /> into something special.</p>

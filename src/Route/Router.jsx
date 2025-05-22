@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                loader: ({params})=> fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
                 element: <PrivetRout>
                     <GroupDetails></GroupDetails>
                 </PrivetRout>
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'update/:id',
-                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                loader: ({params})=> fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
                 Component: Update
             },
             {

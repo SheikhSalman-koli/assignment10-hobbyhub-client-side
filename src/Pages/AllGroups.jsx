@@ -7,7 +7,7 @@ const AllGroups = () => {
     // console.log(groups);
 
     useEffect(() => {
-        fetch('http://localhost:3000/groups')
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
             .then(data => setGroups(data))
     }, [])
