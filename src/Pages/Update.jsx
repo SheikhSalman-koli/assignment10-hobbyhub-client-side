@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../Componants/Context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -9,6 +9,7 @@ const Update = () => {
 
     const group = useLoaderData()
     const { _id, name, category, dscription, Location, members, date, photo } = group
+    const navigate = useNavigate()
     // console.log(group);
 
     const handleUpdate = (e) => {
@@ -29,6 +30,7 @@ const Update = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     toast.success('updated successfully!')
+                    navigate(`/details/${_id}`)
                 }
                 // console.log(data);
             })
@@ -80,7 +82,7 @@ const Update = () => {
                     {/* Start Date */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label">Start Date</label>
-                        <input type="text" name='date' defaultValue={date} className="input w-full" placeholder="Start Date" />
+                        <input type="date" name='date' defaultValue={date} className="input w-full" placeholder="Start Date" />
                     </fieldset>
                     {/* User Name   */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">

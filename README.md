@@ -1,12 +1,18 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎯 Hobby Hub
+A dynamic and user-friendly platform where people can discover, join, and create hobby-based groups to connect with like-minded individuals.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [https://hobby-hub-45039.web.app]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🧭 **Browse and Explore Groups:** Users can explore various hobby groups across categories like art, music, tech, and more.
+- 📝 **Create and Manage Groups:** Authenticated users can create new groups with custom titles, descriptions, and start dates.
+- 📆 **Join Active Groups:** Users can join only active groups — expired groups show a "no longer active" message instead of a join button.
+- 🔒 **Authentication System:** Login and registration with user-specific actions like group creation and joining restrictions.
+- 🎨 **Responsive UI:** Clean and responsive design using Tailwind CSS, optimized for desktop and mobile views.
+
+
+

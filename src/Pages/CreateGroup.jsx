@@ -84,7 +84,7 @@ const CreateGroup = () => {
                     {/* Start Date */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label">Start Date</label>
-                        <input type="text" name='date' className="input w-full" placeholder="Start Date" />
+                        <input type="date" name='date' className="input w-full" placeholder="Start Date" />
                     </fieldset>
                     {/* User Name   */}
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
