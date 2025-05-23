@@ -15,7 +15,7 @@ const CreateGroup = () => {
         console.log(newGroup);
 
         // send Group data to the db
-        fetch('https://assignment10-server-site-dusky.vercel.app/groups', {
+        fetch('http://localhost:3000/groups', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -11,7 +11,7 @@ const MyGroup = () => {
 
     const [groups, setGroups] = useState([])
     const [remaining, setRemaining] = useState([])
-    const [loader, setLoader]= useState(false)
+    const [loader, setLoader] = useState(false)
 
     // console.log(remaining);
     useEffect(() => {
@@ -76,7 +76,7 @@ const MyGroup = () => {
                                     <th>Profile</th>
                                     <th>Name</th>
                                     <th>Location</th>
-                                    <th className='hidden lg:block'>Description</th>
+                                    <th>Description</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -103,7 +103,7 @@ const MyGroup = () => {
                                         </td>
                                         <td className='font-bold'>{group.name}</td>
                                         <td>{group.Location}</td>
-                                        <td className='hidden lg:block'>
+                                        <td className='max-w-32 break-words truncate whitespace-nowrap overflow-hidden' title={group.dscription}>
                                             {group.dscription}
                                         </td>
                                         <th>
@@ -115,18 +115,18 @@ const MyGroup = () => {
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div >)
                 :
                 (<div>
                     {
                         loader ? <span className="loading loading-spinner loading-xl my-15 text-red"></span>
-                         : 
-                        <div className='my-5 lg:my-10  p-6 lg:p-15 space-y-4'>
-                    <h1 className='text-6xl text-red-500 font-bold'>Opps!</h1>
-                    <h1 className='font-bold'>you did not create any Group yet</h1>
-                    <Link to='/create' className='btn hover:btn-primary'>Create Group</Link>
-                </div>
+                            :
+                            <div className='my-5 lg:my-10  p-6 lg:p-15 space-y-4'>
+                                <h1 className='text-6xl text-red-500 font-bold'>Opps!</h1>
+                                <h1 className='font-bold'>you did not create any Group yet</h1>
+                                <Link to='/create' className='btn hover:btn-primary'>Create Group</Link>
+                            </div>
                     }
                 </div>)}
         </div >

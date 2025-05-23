@@ -12,19 +12,23 @@ const Banner = () => {
         <div className='my-10'>
             <Splide aria-label="My Favorite Images">
                 <SplideSlide>
-                    <img className='w-full h-[250px] lg:h-[450px]' src={slider5} alt="Image 1" />
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip" className='w-full h-[250px] lg:h-[450px]' src={slider5} alt="Image 1" />
+                </SplideSlide>
+                {/* <a data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip">
+                    ◕‿‿◕
+                </a>
+                <Tooltip id="my-tooltip" /> */}
+                <SplideSlide>
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip" className='w-full h-[250px] lg:h-[450px]' src={slider2} alt="Image 2" />
                 </SplideSlide>
                 <SplideSlide>
-                    <img className='w-full h-[250px] lg:h-[450px]' src={slider2} alt="Image 2" />
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip" className='w-full h-[250px] lg:h-[450px]' src={slider3} alt="Image 1" />
                 </SplideSlide>
                 <SplideSlide>
-                    <img className='w-full h-[250px] lg:h-[450px]' src={slider3} alt="Image 1" />
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip" className='w-full h-[250px] lg:h-[450px]' src={slider1} alt="Image 1" />
                 </SplideSlide>
                 <SplideSlide>
-                    <img className='w-full h-[250px] lg:h-[450px]' src={slider1} alt="Image 1" />
-                </SplideSlide>
-                <SplideSlide>
-                    <img className='w-full h-[250px] lg:h-[450px]' src={slider4} alt="Image 1" />
+                    <img data-tooltip-id="my-tooltip" data-tooltip-content="this is from react tooltip" className='w-full h-[250px] lg:h-[450px]' src={slider4} alt="Image 1" />
                 </SplideSlide>
             </Splide>
         </div>

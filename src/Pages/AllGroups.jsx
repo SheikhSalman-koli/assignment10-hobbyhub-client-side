@@ -38,7 +38,7 @@ const AllGroups = () => {
                                         <th>Profile</th>
                                         <th>Name</th>
                                         <th>Location</th>
-                                        <th className='hidden lg:block'>Description</th>
+                                        <th>Description</th>
                                         <th>view details</th>
                                     </tr>
                                 </thead>
@@ -66,7 +66,7 @@ const AllGroups = () => {
                                             </td>
                                             <td className='font-bold'>{group.name}</td>
                                             <td>{group.Location}</td>
-                                            <td className='hidden lg:block'>
+                                            <td className='max-w-32 break-words truncate whitespace-nowrap overflow-hidden' title= {group.dscription}>
                                                 {group.dscription}
                                             </td>
                                             <th>
