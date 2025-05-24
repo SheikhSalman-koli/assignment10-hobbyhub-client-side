@@ -13,7 +13,7 @@ import NotFound from "../Pages/NotFound";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         Component: Root,
         children: [
             {
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
                 path: 'allgroup',
                 Component: AllGroups
             },
-              {
+            {
                 path: 'create',
                 element: <PrivetRout>
                     <CreateGroup></CreateGroup>
@@ -33,13 +33,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
                 element: <PrivetRout>
                     <GroupDetails></GroupDetails>
                 </PrivetRout>
                 // Component: GroupDetails
             },
-              {
+            {
                 path: 'mygroup',
                 element: <PrivetRout>
                     <MyGroup></MyGroup>
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'update/:id',
-                loader: ({params})=> fetch(`http://localhost:3000/groups/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${params.id}`),
                 Component: Update
             },
             {
@@ -59,10 +59,14 @@ export const router = createBrowserRouter([
                 path: '/signup',
                 Component: SignUp
             },
-            {
-                path: '*',
-                Component: NotFound
-            }
+            // {
+            //     path: '*',
+            //     Component: NotFound
+            // }
         ]
+    },
+    {
+        path: '*',
+        Component: NotFound
     }
 ]) 

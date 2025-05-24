@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FeaturedCard from './FeaturedCard';
-
+// import bg from '../assets/hibby-logo.jpg'
 const FeaturedGroups = () => {
 
     const [groups, setGroups] = useState([])
@@ -11,7 +11,7 @@ const FeaturedGroups = () => {
 
     useEffect(() => {
         setLoader(true)
-        fetch('http://localhost:3000/groups')
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data)
@@ -25,9 +25,9 @@ const FeaturedGroups = () => {
             {
                 loader ? (<span className="loading loading-spinner loading-xl my-15 text-red"></span>) :
                     (
-                        <div>
-                        <h1 className='text-5xl mb-4'>Featured Groups with Reveal</h1>
-                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 '>
+                        <div className="bg-[url('../assets/hibby-logo.jpg')] bg-cover bg-center">
+                        <h1 className='text-5xl mb-4 text-fuchsia-500'>Featured Groups with Reveal</h1>
+                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 '>
                         {
                             sixGroups.map(item => <FeaturedCard key={item._id} group={item}></FeaturedCard>)
                         }

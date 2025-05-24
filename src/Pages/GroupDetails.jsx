@@ -25,11 +25,11 @@ const GroupDetails = () => {
     const isExpired = startDate < currentDate;
 
     return (
-        <div>
-            <div className="max-w-3xl mx-auto p-6 bg-white shadow rounded-lg mt-8">
+        <div className='mb-8 '>
+            <div className="bg-white shadow rounded-lg mt-8 pb-8">
                 <img src={group.photo} alt={group.name} className="w-full h-64 object-cover rounded" />
                 <h2 className="text-3xl font-bold mt-4">{group.name}</h2>
-                <p className="text-gray-600 mt-1 italic">{group.category}</p>
+                <p className="text-gray-600 text-2xl mt-1 italic"><span className='font-bold'>Category:</span>{group.category}</p>
 
                 <div className="mt-4">
                     <p className="mb-2"><span className='font-bold'>Description:</span> {group.dscription}</p>
@@ -40,12 +40,12 @@ const GroupDetails = () => {
                 </div>
                 {isExpired ? (
                     <p className="text-red-600 font-semibold flex items-center justify-center gap-1">
-                        This group is no longer active.
                         <ImCross />
+                        This group is no longer active.
                     </p>
                 ) : (
                     <button
-                        className="mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        className="mt-6 px-4 py-2 btn-ghost font-bold text-20px bg-fuchsia-400 text-black hover:text-fuchsia-400 hover:bg-black"
                         onClick={handleJoin}
                     >
                         Join Group

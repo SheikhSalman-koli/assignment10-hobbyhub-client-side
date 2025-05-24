@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Componants/Context/AuthContext';
-import { MdEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { GiQuillInk } from "react-icons/gi";
+import { RxScissors } from "react-icons/rx";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
 
@@ -16,7 +16,7 @@ const MyGroup = () => {
     // console.log(remaining);
     useEffect(() => {
         setLoader(true)
-        fetch('http://localhost:3000/groups')
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data)
@@ -40,7 +40,7 @@ const MyGroup = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${id}`, {
+                fetch(`https://assignment10-server-site-dusky.vercel.app/groups/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -70,7 +70,7 @@ const MyGroup = () => {
                                 <tr>
                                     <th className='hidden lg:block'>
                                         <label>
-                                            <p>serial</p>
+                                            <p>No.</p>
                                         </label>
                                     </th>
                                     <th>Profile</th>
@@ -90,15 +90,14 @@ const MyGroup = () => {
                                             </label>
                                         </th>
                                         <td>
-                                            <div className="flex items-center gap-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle h-12 w-12">
-                                                        <img
-                                                            src={group.photo}
-                                                            alt="Avatar Tailwind CSS Component" />
-                                                    </div>
-                                                </div>
-
+                                            <div className="flex items-center gap-3">                                   
+                                                        <div className="avatar">
+                                                            <div className="mask mask-squircle h-16 w-16">
+                                                            <img className="w-20 h-14"
+                                                                src={group.photo}
+                                                                alt="" />
+                                                        </div>
+                                                        </div>
                                             </div>
                                         </td>
                                         <td className='font-bold'>{group.name}</td>
@@ -106,9 +105,9 @@ const MyGroup = () => {
                                         <td className='max-w-32 break-words truncate whitespace-nowrap overflow-hidden' title={group.dscription}>
                                             {group.dscription}
                                         </td>
-                                        <th>
-                                            <Link to={`/update/${group._id}`} className='btn btn-sm hover:btn-warning'><MdEdit size={20} /></Link>
-                                            <button onClick={() => handleDelet(group._id)} className='btn btn-sm hover:btn-warning mt-1'><MdDelete size={20} /></button>
+                                        <th className='flex items-center'>
+                                            <Link to={`/update/${group._id}`} className='btn btn-sm bg-fuchsia-400 hover:text-fuchsia-400 hover:bg-black'><GiQuillInk size={25}/></Link>
+                                            <button onClick={() => handleDelet(group._id)} className='btn btn-sm bg-fuchsia-400 hover:text-fuchsia-400 hover:bg-black mt-1'><RxScissors size={25} /></button>
                                         </th>
                                     </tr>)
                                 }

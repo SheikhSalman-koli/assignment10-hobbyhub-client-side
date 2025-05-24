@@ -4,7 +4,7 @@ import { BsFillPinAngleFill } from "react-icons/bs";
 const Extra2 = () => {
     return (
         <div>
-            <section className="bg-blue-50 py-8 px-6 rounded-xl shadow max-w-4xl mx-auto my-8 text-center">
+            <section className="bg-fuchsia-300 py-8 px-6 text-black rounded-xl shadow max-w-4xl mx-auto my-8 text-center">
                 <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2"><span className='text-red-600'><BsFillPinAngleFill /></span> How It Works</h2>
                 <div className="grid md:grid-cols-3 gap-6">
                     <div>

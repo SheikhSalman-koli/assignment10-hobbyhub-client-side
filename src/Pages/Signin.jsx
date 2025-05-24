@@ -31,7 +31,7 @@ const Signin = () => {
                }
                if (!minimum.test(password) === true) {
                    // setShowError()
-                   toast.error("Length must be at least 6 character!")
+                   toast.error("Password Length must be at least 6 character!")
                    return
                }
 
@@ -40,7 +40,7 @@ const Signin = () => {
             const usser = result.user
             // console.log(usser);
              setUser(usser)
-             Swal.fire('login successfully')
+             Swal.fire('loggged in successfully')
              navigate('/')
             // navigate(`${ location.state ? location.state : '/'}`)
         })

@@ -5,6 +5,6 @@ a{
 }
 
 a.active{
-    color: blue;
+    color: fuchsia;
     text-decoration: underline;
 }

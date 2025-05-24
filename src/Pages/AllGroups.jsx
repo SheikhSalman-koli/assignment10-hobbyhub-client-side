@@ -9,7 +9,7 @@ const AllGroups = () => {
 
     useEffect(() => {
         setLoader(true)
-        fetch('http://localhost:3000/groups')
+        fetch('https://assignment10-server-site-dusky.vercel.app/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data)
@@ -17,15 +17,15 @@ const AllGroups = () => {
             })
     }, [])
 
-    // <span className="loading loading-spinner loading-xl"></span>
+    // https://assignment10-server-site-dusky.vercel.app/groups
     return (
-        <div>
+        <div className=''>
             {
                 loader ? <span className="loading loading-spinner loading-xl my-15 text-red"></span>
                     :
                     <div className='my-10'>
-                        <h1 className="text-6xl">All Created Groups</h1>
-                        <div className="overflow-x-auto">
+                        <h1 className="text-5xl font-bold text-fuchsia-500">All Created Groups</h1>
+                        <div className="overflow-x-auto ">
                             <table className="table mt-8">
                                 {/* head */}
                                 <thead>
@@ -54,23 +54,22 @@ const AllGroups = () => {
                                             </th>
                                             <td>
                                                 <div className="flex items-center gap-3">
-                                                    <div className="avatar">
-                                                        <div className="mask mask-squircle h-12 w-12">
-                                                            <img
+                                                        <div className="avatar">
+                                                            <div className="mask mask-squircle h-16 w-16">
+                                                            <img className="w-20 h-14"
                                                                 src={group.photo}
-                                                                alt="Avatar Tailwind CSS Component" />
+                                                                alt="" />
                                                         </div>
-                                                    </div>
-
+                                                        </div>
                                                 </div>
                                             </td>
                                             <td className='font-bold'>{group.name}</td>
                                             <td>{group.Location}</td>
-                                            <td className='max-w-32 break-words truncate whitespace-nowrap overflow-hidden' title= {group.dscription}>
+                                            <td className='max-w-32 break-words truncate whitespace-nowrap overflow-hidden' title={group.dscription}>
                                                 {group.dscription}
                                             </td>
                                             <th>
-                                                <Link to={`/details/${group._id}`} className="btn btn-ghost btn-xs">details</Link>
+                                                <Link to={`/details/${group._id}`} className="btn btn-ghost bg-fuchsia-400 text-black hover:text-fuchsia-400 hover:bg-black">See More</Link>
                                             </th>
                                         </tr>)
                                     }

@@ -5,6 +5,7 @@ import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import logo from '../../assets/hibby-logo.jpg'
+import { Tooltip } from 'react-tooltip';
 
 const Nav = () => {
 
@@ -26,7 +27,7 @@ const Nav = () => {
                 <div className="navbar-start gap-5">
                     <img className='w-14 h-14 rounded-full ' src={logo} alt="" />
 
-                     <label className="swap swap-rotate">
+                    <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" className="theme-controller" value="synthwave" />
                         {/* sun icon */}
@@ -47,6 +48,7 @@ const Nav = () => {
                         </svg>
                     </label>
                 </div>
+
                 <div className="navbar-end">
                     <div className="hidden lg:flex items-center">
                         <NavLink to='/'>Home</NavLink>
@@ -55,9 +57,10 @@ const Nav = () => {
                         <NavLink to='/mygroup'>My Groups</NavLink>
                         {
                             user ? <>
-                                <div className="tooltip" data-tip={user.displayName}>
-                                    <img className='w-14 h-14 rounded-full mr-1' src={user.photoURL} alt="" />
-                                </div>
+                                {/* <div className="tooltip" data-tip={user.displayName}>
+                                </div> */}
+                                <img className='w-14 h-14 rounded-full mr-1' src={user.photoURL} alt="" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} />
+                                <Tooltip id="my-tooltip" />
                                 <button onClick={handleLogout} className='text-[12px] font-bold'>logout</button>
                             </>
                                 :

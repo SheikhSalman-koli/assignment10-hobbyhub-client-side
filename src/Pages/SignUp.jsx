@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-    // const [showError, setShowError] = useState()
     const { createUser, updateUser, setUser, loginByGoogle } = use(AuthContext)
     const navigate = useNavigate()
 
@@ -23,21 +22,17 @@ const SignUp = () => {
         const minimum = /.{6,}/
 
         if (!upperCase.test(password) === true) {
-            // setShowError()
             toast.error("Must have an Uppercase letter in the password!")
             return
         }
         if (!lower.test(password) === true) {
-            // setShowError()
             toast.error("Must have a Lowercase letter in the password!")
             return
         }
         if (!minimum.test(password) === true) {
-            // setShowError()
             toast.error("Length must be at least 6 character!")
             return
         }
-        // setShowError('')
         createUser(email, password)
             .then((result) => {
                 const usser = result.user
@@ -45,7 +40,6 @@ const SignUp = () => {
                 updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
                         setUser({ ...usser, displayName: name, photoURL: photo });
-                        // setUser()
                         navigate('/')
                         Swal.fire({
                             title: 'logged in successfully',
@@ -53,7 +47,6 @@ const SignUp = () => {
                         })
                     })
                     .catch((error) => {
-                        // toast.error
                         toast.error(error.message)
                     })
             })
@@ -69,14 +62,13 @@ const SignUp = () => {
             .then(result => {
                 const usser = result.user
                 setUser(usser)
-                Swal.fire('login successfully')
+                Swal.fire('logged in successfully')
                 navigate('/')
             })
             .catch((error) => {
                 toast.error(error.message)
             })
     }
-
 
     return (
         <div className='my-5'>
