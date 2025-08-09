@@ -46,7 +46,7 @@ With its focus on community building and user engagement, Hobby Hub transforms h
 
 ## Setup & Installation  
 ```bash
-git clone https://github.com/SheikhSalman-koli/assignment12-medicamp-client-side.git
+git clone https://github.com/SheikhSalman-koli/assignment10-hobbyhub-client-side.git
 cd your project name
 npm install
 npm run dev
